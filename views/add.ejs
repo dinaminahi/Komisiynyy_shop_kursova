@@ -1,0 +1,16 @@
+<%- include('partials/header'); -%>
+<h1>Додавання товару</h1>
+<form class="addForm" action="/add" method="post" enctype="multipart/form-data">
+  <div class="form-group">
+    <label>Назва товару</label>
+    <input type="text" name="name" class="form-control">
+    <label>Вкажіть ціну</label>
+    <input type="text" name="price" class="form-control">
+    <label>Опис товару</label>
+    <textarea name="description" class="form-control" rows="8" cols="80"></textarea>
+    <label>Завантажте фото</label>
+    <input type="file" id="file" name="photo">
+  </div>
+  <button type="submit" name="button" class="btn btn-primary btn-lg">Додати</button>
+</form>
+<%- include('partials/footer'); -%>

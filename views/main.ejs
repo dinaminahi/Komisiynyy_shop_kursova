@@ -1,0 +1,51 @@
+<%- include('partials/header'); -%>
+<%- include('partials/welcome'); -%>
+<section>
+  <h1>Товари</h1>
+  <h6 style="display: inline">Сортувати по</h6>
+  <form action="/sortLower" method="get" style="display: inline">
+    <button type="submit" name="button" class="btn btn-sm btn-primary">Спаданню</button>
+  </form>
+  <form action="/sortHigher" method="get" style="display: inline">
+    <button type="submit" name="button" class="btn btn-sm btn-primary">Зростанню</button>
+    <h6 style="display: inline">ціни</h6>
+  </form>
+  <div class="row products-container">
+    <%  products.forEach( product => { %>
+    <div class="col-12 col-sm-6 col-md-4 col-lg-3 mb-3">
+      <div class="card product">
+        <img class="card-img-top" src="/<%= product.photo %>" alt="<%= product.name %>">
+        <div class="card-body">
+          <h4 class="card-title">
+            <%= product.name %>
+          </h4>
+          <p class="card-text">
+            <%= (product.description).substring(0,50) %>...</p>
+          <a class="btn btn-info" href="/products/<%=product._id%>">Інфо</a>
+
+          <a class="btn btn-primary buy" href="/order/<%=product._id%>">
+            <%= product.price %>₴ - Купити</a>
+
+        </div>
+      </div>
+    </div>
+
+    <%  }); %>
+  </div>
+</section>
+
+
+</main>
+
+<div class="footer-padding"></div>
+<div class="footerr">
+  <p>Copyright by Diana Grechukh</p>
+</div>
+<script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.3/umd/popper.min.js" integrity="sha384-vFJXuSJphROIrBnz7yo7oB41mKfc8JzQZiCq4NCceLEaO4IHwicKwpJf9c9IpFgh" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.2/js/bootstrap.min.js" integrity="sha384-alpBpkh1PFOepccYVYDB4do5UnbKysX5WZXm3XxPqe5iKTfUKjNkCk9SaVuEZflJ" crossorigin="anonymous"></script>
+<script defer src="https://use.fontawesome.com/releases/v5.5.0/js/all.js" integrity="sha384-GqVMZRt5Gn7tB9D9q7ONtcp4gtHIUEW/yG7h98J7IpE3kpi+srfFyyB/04OV6pG0" crossorigin="anonymous"></script>
+
+</body>
+
+</html>

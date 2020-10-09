@@ -1,0 +1,18 @@
+<%- include('partials/header'); -%>
+
+<div class="jumbotron jumbotron-fluid">
+    <div class="container">
+      <h1 class="display-4">Уппс!</h1>
+      <p class="lead">Щось пішло не так, сталася помилка!</p>
+
+      <form action="/registry" method="get" style="display: inline">
+        <button class="btn btn-lg btn-primary" type="submit" name="button">Зареєструватись</button>
+      </form>
+
+      <form action="/authorization" method="get" style="display: inline; padding-left: 20px;">
+        <button class="btn btn-lg btn-primary" type="submit" name="button" >Спробувати знову</button>
+      </form>
+    </div>
+  </div>
+
+<%- include('partials/footer'); -%>

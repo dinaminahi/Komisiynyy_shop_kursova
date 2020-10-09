@@ -1,0 +1,41 @@
+<%- include('partials/header'); -%>
+
+<h1>Корзина</h1>
+<% let total = 0;%>
+
+<%  shoppingCartItems.forEach( item => { %>
+<% total += item.price; %>
+<div class="container">
+  <div class="row">
+    <div class="col-5"><strong>Товар</strong></div>
+    <div class="col-3"><strong>Ціна</strong></div>
+  </div>
+  <div class="row">
+    <div class="col-5">
+      <%= item.name %>
+    </div>
+    <div class="col-3">
+      <%= item.price %>₴</div>
+  </div>
+</div>
+<%  });%>
+
+<div style="height: 50px;"></div>
+
+<form action="/order" method="post">
+  <div class="form-group">
+    <label>ПІБ</label>
+    <input type="text" name="name" class="form-control">
+    <label>Номер телефону</label>
+    <input type="text" name="phone" class="form-control">
+    <div class="row">
+      <div class="col-5"><strong>До сплати</strong></div>
+      <div class="col-12"><strong>
+          <%= total %>₴</strong></div>
+    </div>
+  </div>
+
+  <button type="submit" name="button" class="btn btn-primary btn-lg">Замовити</button>
+</form>
+
+<%- include('partials/footer'); -%>
